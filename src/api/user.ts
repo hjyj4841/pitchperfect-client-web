@@ -6,7 +6,6 @@ const instance = axios.create({
 });
 
 export const loginUser = async (user: User) => {
-    console.log(user);
     const result = await instance.post("/login", user);
-    console.log(result);
+    return result.data;
 };

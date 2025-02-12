@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { User } from "../../types";
 import { loginUser } from "../../api/user.ts";
+import { useAuth } from "../../contexts/AuthContext.tsx";
 
 const StyledLogin = styled.div`
         form {
@@ -12,6 +13,8 @@ const StyledLogin = styled.div`
     `;
 
 const Login = () => {
+    const { login } = useAuth();
+
     const [user, setUser] = useState<User>({
         userId: '',
         userPassword: '',
@@ -20,8 +23,10 @@ const Login = () => {
         userIntroduce: ''
     });
 
-    const login = () => {
-        loginUser(user);
+    const getToken = async () => {
+        const token:string = await loginUser(user);
+        if(token !== null) login(token);
+        window.location.href = '/';
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +48,7 @@ const Login = () => {
                     value={user.userPassword} 
                     onChange={handleInputChange}
                 />
-                <button type="button" onClick={login}>로그인</button>
+                <button type="button" onClick={getToken}>로그인</button>
             </form>
         </StyledLogin>
     )
