@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import router from './router.tsx';
 import { AuthProvider } from './contexts/AuthContext.tsx';
+import "./assets/css/reset.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
