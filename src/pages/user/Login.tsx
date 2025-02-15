@@ -5,6 +5,7 @@ import { loginUser } from "../../api/user.ts";
 import { useAuth } from "../../contexts/AuthContext.tsx";
 
 const StyledLogin = styled.div`
+    padding-top: 50px;
         form {
             width: 300px;
             display: flex;

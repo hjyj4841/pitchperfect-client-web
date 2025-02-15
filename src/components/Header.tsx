@@ -5,6 +5,7 @@ import styled from "styled-components";
 const HeaderStyled = styled.div`
     position: fixed;
     width: 100vw;
+    height: 50px;
 
     display: flex;
     justify-content: flex-end;
